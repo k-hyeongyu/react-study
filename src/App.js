@@ -8,13 +8,11 @@ import Export01 from './study/Export01';
 import Practice02 from './practice/practice02';
 import Props01 from './study/Props01';
 import Props02 from './study/Props02';
+import Practice03 from './practice/practice03/Practice03';
+import NewsBlog from './newsBlog/NewsBlog';
 
 function App() {
-
-  //return <Basic01/>;
-  //return <State01/>; //useState 사용법
-  //return <Practice01/>;
-  return <Props02/>;
+  return <NewsBlog/>;
 
 
   // return (
