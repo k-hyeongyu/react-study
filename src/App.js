@@ -3,17 +3,18 @@ import './App.css';
 import Basic01 from './study/Basic01';
 import State01 from './study/State01';
 import Practice01 from './practice/practice01';
-import State02 from './study/State02';
+//import State02 from './study/State02';
 import Export01 from './study/Export01';
 import Practice02 from './practice/practice02';
-
+import Props01 from './study/Props01';
+import Props02 from './study/Props02';
 
 function App() {
 
   //return <Basic01/>;
   //return <State01/>; //useState 사용법
   //return <Practice01/>;
-  return <Practice02/>;
+  return <Props02/>;
 
 
   // return (
