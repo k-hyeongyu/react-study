@@ -13,7 +13,7 @@ import NewsBlog from './newsBlog/NewsBlog';
 import Practice04 from './practice/practice04/Practice04';
 
 function App() {
-  return <Practice04/>;
+  return <NewsBlog/>;
 
 
   // return (
