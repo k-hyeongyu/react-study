@@ -11,6 +11,13 @@ function Detail({ foods }) {
     let food = foods.find((food)=>{
         return food.id == id;
     })
+
+    if(food == undefined){
+
+        return(
+            <div><h1>존재하지 않는 상품입니다. 잘못된 접근입니다.</h1></div>
+        )
+    }
             return(
                 <Container>
                     <Row>
