@@ -1,13 +1,59 @@
 import { useState } from "react";
 import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import { saveUserId, clearUserId, saveUserInfo, setWeatherInfo} from "./store/store";
 
 function Login() {
 
     let [id, setId] = useState('');
     let [pw, setPw] = useState('');
 
+    //redux 저장용으로 만든 store에 있는 slice에 저장된 값을 변경하는 action 함수 호출시에는
+    //dispatcher 에 감싸서 요청해야 한다. dispatch(수행할 내용)
+    let dispatch = useDispatch();
+
+    //redux에 저장되어 있는 값들을 접근해서 사용
+    let reduxState = useSelector((state)=>{return state});
+
+    console.log(reduxState);
+    console.log(reduxState.user);
+    console.log(reduxState.weather);
+
+    let user = useSelector((state)=>{return state.user});
+    console.log(user);
+    
+    let weather = useSelector((state)=>{return state.weather});
+    console.log(weather);
+
     return (
         <div>
+            <h1>redux-test</h1>
+            <div>
+                <button onClick={()=>{
+                    //saveuserId('mynewId'); 단순함수호출X
+                    dispatch(saveUserId('mynewId'));
+                    console.log(user);
+                }}>
+                saveUserId</button>
+
+                <button onClick={()=>{
+                    dispatch(clearUserId());
+                }}>
+                clearUserId</button>
+
+                <button onClick={()=>{
+                    dispatch(saveUserInfo( {id:'qwe', name:'rr' } ));
+                }}>
+                saveUserInfo</button>
+
+                <button onClick={()=>{
+                    dispatch(setWeatherInfo( {weather: 'cloudy', temperature: 30, hdmt: 72} ));
+                }}>
+                setWeatherInfo</button>
+            </div>
+            
+            <hr></hr>
+
             <h1>React Spring Loing</h1>
 
             <p> id : <input type="text" onChange={(e) => { setId(e.target.value) }}></input> </p>
@@ -108,7 +154,7 @@ function Login() {
                     {
                         headers: {
                             "Content-Type": "application/json",
-                            "Authorization":"Bearer" + localStorage.getItem("token")
+                            "Authorization":"Bearer " + localStorage.getItem("token")
                         }
                     }
                 )
